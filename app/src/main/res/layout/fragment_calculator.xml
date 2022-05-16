@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".calculator.CalculatorFragment">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:id="@+id/life_point_group"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:baselineAligned="false"
+			android:orientation="horizontal"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/player_header"
+					android:text="@string/p1_header"
+					tools:text="Người chơi 1" />
+
+				<TextView
+					android:id="@+id/p1_lp"
+					style="@style/player_lp"
+					tools:text="10340" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/player_header"
+					android:text="@string/p2_header"
+					tools:text="Người chơi 2" />
+
+				<TextView
+					android:id="@+id/p2_lp"
+					style="@style/player_lp"
+					tools:text="15000" />
+			</LinearLayout>
+		</LinearLayout>
+
+		<Button
+			android:id="@+id/swap_btn"
+			style="@style/lp_btn"
+			android:text="@string/swap"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/life_point_group" />
+
+		<Button
+			android:id="@+id/p1_lp_half_btn"
+			style="@style/lp_btn"
+			android:text="@string/halve_p1"
+			app:layout_constraintEnd_toStartOf="@+id/swap_btn"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/life_point_group"
+			tools:text="Ｐ１半分払う" />
+
+		<Button
+			android:id="@+id/p2_lp_half_btn"
+			style="@style/lp_btn"
+			android:text="@string/halve_p2"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/swap_btn"
+			app:layout_constraintTop_toBottomOf="@id/life_point_group"
+			tools:text="Chia đôi P2" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/guideline"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintTop_toBottomOf="@id/swap_btn" />
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/calculator_group"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintHeight_percent=".4">
+
+			<TextView
+				android:id="@+id/seven_btn"
+				style="@style/calc_button"
+				android:text="@string/seven"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/eight_btn"
+				style="@style/calc_button"
+				android:text="@string/eight"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@id/seven_btn"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/nine_btn"
+				style="@style/calc_button"
+				android:text="@string/nine"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@id/eight_btn"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/four_btn"
+				style="@style/calc_button"
+				android:text="@string/four"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/seven_btn"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/five_btn"
+				style="@style/calc_button"
+				android:text="@string/five"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@+id/four_btn"
+				app:layout_constraintTop_toBottomOf="@+id/eight_btn"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/six_btn"
+				style="@style/calc_button"
+				android:text="@string/six"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@+id/five_btn"
+				app:layout_constraintTop_toBottomOf="@+id/nine_btn"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/one_btn"
+				style="@style/calc_button"
+				android:text="@string/one"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/four_btn"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/two_btn"
+				style="@style/calc_button"
+				android:text="@string/two"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@+id/one_btn"
+				app:layout_constraintTop_toBottomOf="@+id/five_btn"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/three_btn"
+				style="@style/calc_button"
+				android:text="@string/three"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@+id/two_btn"
+				app:layout_constraintTop_toBottomOf="@+id/six_btn"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/zero_btn"
+				style="@style/calc_button"
+				android:text="@string/zero"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/double_zero_btn"
+				style="@style/calc_button"
+				android:text="@string/double_zero"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintHeight_percent=".25"
+				app:layout_constraintStart_toEndOf="@+id/zero_btn"
+				app:layout_constraintWidth_percent=".4" />
+
+			<LinearLayout
+				android:id="@+id/top_right_corner"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:orientation="vertical"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintHeight_percent=".5"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintWidth_percent=".2">
+
+				<TextView
+					android:id="@+id/p1_plus_btn"
+					style="@style/calc_button"
+					android:layout_width="match_parent"
+					android:layout_weight="1"
+					android:background="@color/green"
+					android:text="@string/p1_plus"
+					android:textColor="@color/black" />
+
+				<TextView
+					android:id="@+id/p2_plus_btn"
+					style="@style/calc_button"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:background="@color/green"
+					android:text="@string/p2_plus"
+					android:textColor="@color/black" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/bottom_right_corner"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:orientation="vertical"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintHeight_percent=".5"
+				app:layout_constraintWidth_percent=".2">
+
+				<TextView
+					android:id="@+id/clear_btn"
+					style="@style/calc_button"
+					android:layout_width="match_parent"
+					android:layout_weight="1"
+					android:text="@string/clear" />
+
+				<TextView
+					android:id="@+id/backspace_btn"
+					style="@style/calc_button"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:text="@string/backspace" />
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/p1_minus_btn"
+				style="@style/calc_button"
+				android:background="@color/red"
+				android:text="@string/p1_minus"
+				android:textColor="@color/white"
+				app:layout_constraintEnd_toStartOf="@id/top_right_corner"
+				app:layout_constraintHeight_percent=".5"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintWidth_percent=".2" />
+
+			<TextView
+				android:id="@+id/p2_minus_btn"
+				style="@style/calc_button"
+				android:background="@color/red"
+				android:text="@string/p2_minus"
+				android:textColor="@color/white"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toStartOf="@id/bottom_right_corner"
+				app:layout_constraintHeight_percent=".5"
+				app:layout_constraintWidth_percent=".2" />
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<TextView
+			android:id="@+id/input_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/black"
+			android:fontFamily="@font/fira_mono_bold"
+			android:maxLines="1"
+			android:paddingStart="16dp"
+			android:paddingEnd="16dp"
+			android:textAlignment="viewEnd"
+			android:textColor="@color/white"
+			android:textSize="40sp"
+			android:textStyle="bold"
+			app:layout_constraintBottom_toTopOf="@+id/calculator_group"
+			tools:text="91927462180" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:orientation="vertical"
+			app:layout_constraintBottom_toTopOf="@id/input_text"
+			app:layout_constraintTop_toBottomOf="@id/guideline">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/dice_layout"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/rng"
+					android:layout_height="match_parent"
+					android:text="@string/dice"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintWidth_percent=".5"
+					tools:text="Xúc xắc" />
+
+				<TextView
+					android:id="@+id/dice_text_view"
+					style="@style/rng"
+					android:layout_height="match_parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintWidth_percent=".5"
+					tools:text="6" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/coin_layout"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/rng"
+					android:layout_height="match_parent"
+					android:text="@string/coin"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintWidth_percent=".5"
+					tools:text="Xu" />
+
+				<TextView
+					android:id="@+id/coin_text_view"
+					style="@style/rng"
+					android:layout_height="match_parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintWidth_percent=".5"
+					tools:text="Heads" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</LinearLayout>
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

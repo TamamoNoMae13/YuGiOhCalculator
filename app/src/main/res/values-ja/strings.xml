@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">遊・戯・王！電卓</string>
+	<string name="title">ようこそ、デュエリスト！</string>
+	<string name="calculator">電卓</string>
+	<string name="numbers_evaille">ナンバーズ・エヴァイユ</string>
+	<string name="p1_header">プレイヤー１</string>
+	<string name="p2_header">プレイヤー２</string>
+	<string name="halve_p1">Ｐ１半分払う</string>
+	<string name="halve_p2">Ｐ２半分払う</string>
+	<string name="dice">サイコロ：</string>
+	<string name="coin">コイン：</string>
+	<string name="heads">表</string>
+	<string name="tails">裏</string>
+	<string name="dice_rolled">出目</string>
+	<string name="coin_tossed">トス</string>
+</resources>

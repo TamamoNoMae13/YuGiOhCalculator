@@ -1,0 +1,35 @@
+<resources>
+	<string name="app_name">Yu-Gi-Oh! Calculator</string>
+	<string name="title">Welcome Duelist!</string>
+	<string name="calculator">Calculator</string>
+	<string name="numbers_evaille">Numbers Evaille</string>
+	<string name="p1_header">Player 1</string>
+	<string name="p2_header">Player 2</string>
+	<string name="halve_p1">Halve P1</string>
+	<string name="halve_p2">Halve P2</string>
+	<string name="swap" translatable="false">\u21c4</string>
+	<string name="dice">Dice:</string>
+	<string name="coin">Coin:</string>
+	<string name="heads">Heads</string>
+	<string name="tails">Tails</string>
+	<string name="dice_rolled">Dice rolled</string>
+	<string name="coin_tossed">Coin tossed</string>
+	<!-- Calculator group -->
+	<string name="zero" translatable="false">0</string>
+	<string name="double_zero" translatable="false">00</string>
+	<string name="one" translatable="false">1</string>
+	<string name="two" translatable="false">2</string>
+	<string name="three" translatable="false">3</string>
+	<string name="four" translatable="false">4</string>
+	<string name="five" translatable="false">5</string>
+	<string name="six" translatable="false">6</string>
+	<string name="seven" translatable="false">7</string>
+	<string name="eight" translatable="false">8</string>
+	<string name="nine" translatable="false">9</string>
+	<string name="clear" translatable="false">C</string>
+	<string name="backspace" translatable="false">\u21e4</string>
+	<string name="p1_plus" translatable="false">+P1</string>
+	<string name="p2_plus" translatable="false">+P2</string>
+	<string name="p1_minus" translatable="false">-P1</string>
+	<string name="p2_minus" translatable="false">-P2</string>
+</resources>

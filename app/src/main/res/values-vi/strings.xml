@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Yu-Gi-Oh! Calculator</string>
+	<string name="title">Chào mừng Bài thủ!</string>
+	<string name="calculator">Máy tính</string>
+	<string name="numbers_evaille">Numbers Evaille</string>
+	<string name="p1_header">Người chơi 1</string>
+	<string name="p2_header">Người chơi 2</string>
+	<string name="halve_p1">Chia đôi P1</string>
+	<string name="halve_p2">Chia đôi P2</string>
+	<string name="dice">Xúc xắc:</string>
+	<string name="coin">Xu:</string>
+	<string name="heads">Ngửa</string>
+	<string name="tails">Sấp</string>
+	<string name="dice_rolled">Lắc xúc xắc</string>
+	<string name="coin_tossed">Tung xu</string>
+</resources>
