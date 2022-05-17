@@ -44,7 +44,7 @@
 	<style name="rng">
 		<item name="android:layout_width">0dp</item>
 		<item name="android:gravity">center</item>
-		<item name="android:textSize">40sp</item>
+		<item name="android:textSize">32sp</item>
 		<item name="android:textStyle">bold</item>
 	</style>
 </resources>

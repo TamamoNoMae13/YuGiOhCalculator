@@ -306,7 +306,7 @@
 					android:text="@string/dice"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintWidth_percent=".5"
-					tools:text="Xúc xắc" />
+					tools:text="サイコロ：" />
 
 				<TextView
 					android:id="@+id/dice_text_view"

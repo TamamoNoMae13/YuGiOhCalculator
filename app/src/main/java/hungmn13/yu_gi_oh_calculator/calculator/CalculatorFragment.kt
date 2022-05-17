@@ -23,9 +23,89 @@ class CalculatorFragment : Fragment() {
 		vm = ViewModelProvider(this).get(CalculatorViewModel::class.java)
 
 		displayLP()
+		setInputText(CalcButton.CLEAR)
+		setOnClickListener()
 
+		return binding.root
+	}
+
+	private fun setLP(player: Player, lp: Int? = 0, action: Action = Action.SET) {
+		when (player) {
+			Player.PLAYER1 -> vm.changeP1LP(action, lp)
+			Player.PLAYER2 -> vm.changeP2LP(action, lp)
+			else -> vm.swapLP()
+		}
+		checkLPLimit()
+		displayLP()
+	}
+
+	private fun setInputText(calcButton: CalcButton) {
+		vm.changeInputText(calcButton)
 		binding.inputText.text = vm.inputText.value
+	}
 
+	private fun resetInputText() {
+		vm.resetInputText()
+		binding.inputText.text = vm.inputText.value
+	}
+
+	private fun rollDice() {
+		val dice = (1..6).shuffled().first()
+		binding.diceTextView.text = dice.toString()
+
+		vm.toggleDiceGlow()
+		val tmp =
+			if (vm.isDiceGlowing.value!!) resources.getColor(R.color.yellow) else resources.getColor(R.color.green)
+		binding.diceTextView.setTextColor(tmp)
+	}
+
+	private fun tossCoin() {
+		val coin = (0..1).shuffled().first()
+		binding.coinTextView.text = if (coin == 1) getString(R.string.heads) else getString(R.string.tails)
+
+		vm.toggleCoinGlow()
+		val tmp =
+			if (vm.isCoinGlowing.value!!) resources.getColor(R.color.yellow) else resources.getColor(R.color.green)
+		binding.coinTextView.setTextColor(tmp)
+	}
+
+	private fun displayLP() {
+		binding.p1Lp.textSize = when (vm.p1LP.value.toString().length) {
+			6 -> 40F
+			5 -> 48F
+			else -> 56F
+		}
+		binding.p2Lp.textSize = when (vm.p2LP.value.toString().length) {
+			6 -> 40F
+			5 -> 48F
+			else -> 56F
+		}
+		binding.p1Lp.text = vm.p1LP.value.toString()
+		binding.p2Lp.text = vm.p2LP.value.toString()
+
+		var tmp = when (vm.p1LP.value!!) {
+			in 0..2000 -> resources.getColor(R.color.red)
+			in 2001..4000 -> resources.getColor(R.color.yellow)
+			else -> resources.getColor(R.color.green)
+		}
+		binding.p1Lp.setTextColor(tmp)
+
+		tmp = when (vm.p2LP.value!!) {
+			in 0..2000 -> resources.getColor(R.color.red)
+			in 2001..4000 -> resources.getColor(R.color.yellow)
+			else -> resources.getColor(R.color.green)
+		}
+		binding.p2Lp.setTextColor(tmp)
+	}
+
+	private fun checkLPLimit() {
+		if (vm.p1LP.value!! < 0) vm.changeP1LP(Action.SET, 0)
+		if (vm.p2LP.value!! < 0) vm.changeP2LP(Action.SET, 0)
+		if (vm.p1LP.value!! > 999999) vm.changeP1LP(Action.SET, 999999)
+		if (vm.p2LP.value!! > 999999) vm.changeP2LP(Action.SET, 999999)
+	}
+
+	private fun setOnClickListener() {
 		binding.p1LpHalfBtn.setOnClickListener {
 			setLP(Player.PLAYER1, null, Action.HALVE)
 		}
@@ -117,79 +197,5 @@ class CalculatorFragment : Fragment() {
 			setLP(Player.PLAYER2, vm.inputText.value!!.toString().toInt(), Action.PLUS)
 			resetInputText()
 		}
-
-		return binding.root
-	}
-
-	private fun setLP(player: Player, lp: Int? = 0, action: Action = Action.SET) {
-		when (player) {
-			Player.PLAYER1 -> vm.changeP1LP(action, lp)
-			Player.PLAYER2 -> vm.changeP2LP(action, lp)
-			else -> vm.swapLP()
-		}
-		checkLPLimit()
-		displayLP()
-	}
-
-	private fun setInputText(calcButton: CalcButton) {
-		vm.changeInputText(calcButton)
-		binding.inputText.text = vm.inputText.value
-	}
-
-	private fun resetInputText() {
-		vm.resetInputText()
-		binding.inputText.text = vm.inputText.value
-	}
-
-	private fun rollDice() {
-		val dice = (1..6).shuffled().first()
-		binding.diceTextView.text = dice.toString()
-
-		vm.toggleDiceGlow()
-		val tmp =
-			if (vm.isDiceGlowing.value!!) resources.getColor(R.color.yellow) else resources.getColor(R.color.green)
-		binding.diceTextView.setTextColor(tmp)
-	}
-
-	private fun tossCoin() {
-		val coin = (0..1).shuffled().first()
-		binding.coinTextView.text = if (coin == 1) getString(R.string.heads) else getString(R.string.tails)
-
-		vm.toggleCoinGlow()
-		val tmp =
-			if (vm.isCoinGlowing.value!!) resources.getColor(R.color.yellow) else resources.getColor(R.color.green)
-		binding.coinTextView.setTextColor(tmp)
-	}
-
-	private fun displayLP() {
-		binding.p1Lp.textSize = when (vm.p1LP.value.toString().length) {
-			6 -> 40F
-			5 -> 48F
-			else -> 56F
-		}
-		binding.p2Lp.textSize = when (vm.p2LP.value.toString().length) {
-			6 -> 40F
-			5 -> 48F
-			else -> 56F
-		}
-		binding.p1Lp.text = vm.p1LP.value.toString()
-		binding.p2Lp.text = vm.p2LP.value.toString()
-
-		var tmp = if (vm.p1LP.value!! <= 2000) resources.getColor(R.color.red)
-		else if (vm.p1LP.value!! >= 4000) resources.getColor(R.color.green)
-		else resources.getColor(R.color.black)
-		binding.p1Lp.setTextColor(tmp)
-
-		tmp = if (vm.p2LP.value!! <= 2000) resources.getColor(R.color.red)
-		else if (vm.p2LP.value!! >= 4000) resources.getColor(R.color.green)
-		else resources.getColor(R.color.black)
-		binding.p2Lp.setTextColor(tmp)
-	}
-
-	private fun checkLPLimit() {
-		if (vm.p1LP.value!! < 0) vm.changeP1LP(Action.SET, 0)
-		if (vm.p2LP.value!! < 0) vm.changeP2LP(Action.SET, 0)
-		if (vm.p1LP.value!! > 999999) vm.changeP1LP(Action.SET, 999999)
-		if (vm.p2LP.value!! > 999999) vm.changeP2LP(Action.SET, 999999)
 	}
 }

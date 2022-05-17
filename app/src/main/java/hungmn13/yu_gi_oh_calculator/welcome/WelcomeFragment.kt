@@ -1,4 +1,4 @@
-package hungmn13.yu_gi_oh_calculator
+package hungmn13.yu_gi_oh_calculator.welcome
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import hungmn13.yu_gi_oh_calculator.R
 import hungmn13.yu_gi_oh_calculator.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {

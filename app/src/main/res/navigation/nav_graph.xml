@@ -6,7 +6,7 @@
 
 	<fragment
 		android:id="@+id/welcomeFragment"
-		android:name="hungmn13.yu_gi_oh_calculator.WelcomeFragment"
+		android:name="hungmn13.yu_gi_oh_calculator.welcome.WelcomeFragment"
 		android:label="fragment_welcome" >
 		<action
 			android:id="@+id/action_welcomeFragment_to_calculatorFragment"
@@ -23,6 +23,6 @@
 
 	<fragment
 		android:id="@+id/numbersEvailleFragment"
-		android:name="hungmn13.yu_gi_oh_calculator.NumbersEvailleFragment"
+		android:name="hungmn13.yu_gi_oh_calculator.evaille.NumbersEvailleFragment"
 		android:label="NumbersEvailleFragment" />
 </navigation>

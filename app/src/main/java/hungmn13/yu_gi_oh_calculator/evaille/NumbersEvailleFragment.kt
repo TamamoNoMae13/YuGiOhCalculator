@@ -1,11 +1,12 @@
-package hungmn13.yu_gi_oh_calculator
+package hungmn13.yu_gi_oh_calculator.evaille
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import hungmn13.yu_gi_oh_calculator.R
 import hungmn13.yu_gi_oh_calculator.databinding.FragmentNumbersEvailleBinding
 
 class NumbersEvailleFragment : Fragment() {
