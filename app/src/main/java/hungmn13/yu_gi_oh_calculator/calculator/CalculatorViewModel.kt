@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import hungmn13.yu_gi_oh_calculator.enum.Action
 import hungmn13.yu_gi_oh_calculator.enum.CalcButton
+import hungmn13.yu_gi_oh_calculator.enum.Player
 
 class CalculatorViewModel : ViewModel() {
 	private val _p1LP = MutableLiveData<Int>()
@@ -43,6 +44,7 @@ class CalculatorViewModel : ViewModel() {
 			Action.HALVE -> p1LP.value!!.div(2)
 			else -> p1LP.value!!
 		}
+		checkLPLimit(Player.PLAYER1)
 	}
 
 	fun changeP2LP(action: Action, lp: Int?) {
@@ -53,6 +55,7 @@ class CalculatorViewModel : ViewModel() {
 			Action.HALVE -> p2LP.value!!.div(2)
 			else -> p2LP.value!!
 		}
+		checkLPLimit(Player.PLAYER2)
 	}
 
 	fun swapLP() {
@@ -91,5 +94,15 @@ class CalculatorViewModel : ViewModel() {
 
 	fun toggleCoinGlow() {
 		_isCoinGlowing.value = !(isCoinGlowing.value!!)
+	}
+
+	private fun checkLPLimit(player: Player) {
+		if (player == Player.PLAYER1) {
+			if (p1LP.value!! < 0) changeP1LP(Action.SET, 0)
+			if (p1LP.value!! > 999999) changeP1LP(Action.SET, 999999)
+		} else {
+			if (p2LP.value!! < 0) changeP2LP(Action.SET, 0)
+			if (p2LP.value!! > 999999) changeP2LP(Action.SET, 999999)
+		}
 	}
 }

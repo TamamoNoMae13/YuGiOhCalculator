@@ -35,7 +35,6 @@ class CalculatorFragment : Fragment() {
 			Player.PLAYER2 -> vm.changeP2LP(action, lp)
 			else -> vm.swapLP()
 		}
-		checkLPLimit()
 		displayLP()
 	}
 
@@ -96,13 +95,6 @@ class CalculatorFragment : Fragment() {
 			else -> resources.getColor(R.color.green)
 		}
 		binding.p2Lp.setTextColor(tmp)
-	}
-
-	private fun checkLPLimit() {
-		if (vm.p1LP.value!! < 0) vm.changeP1LP(Action.SET, 0)
-		if (vm.p2LP.value!! < 0) vm.changeP2LP(Action.SET, 0)
-		if (vm.p1LP.value!! > 999999) vm.changeP1LP(Action.SET, 999999)
-		if (vm.p2LP.value!! > 999999) vm.changeP2LP(Action.SET, 999999)
 	}
 
 	private fun setOnClickListener() {
