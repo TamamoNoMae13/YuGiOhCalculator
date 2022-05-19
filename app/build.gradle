@@ -35,6 +35,7 @@ android {
 		viewBinding true
 		dataBinding true
 	}
+	namespace 'hungmn13.yu_gi_oh_calculator'
 }
 
 dependencies {
